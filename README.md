@@ -2,29 +2,39 @@
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
 | Name         | Wei Wang       |
-| Date         | 10/10/2024                 |
+| Date         | 10/25/2024                 |
 | Course       | Fall     |
-| Assignment # |     2                       |
+| Assignment # |     4                       |
 
 # Assignment Overview
 Please add a paragraph or two overviewing the objectives of the assignment.
 
+- In this assignment, when it comes to modifying our codebase to support new features, it always reminds us that there are better solutions to this situation. To be more specific, we can leverage the Adapter pattern to resolve the inconsistency between the new feature and the legacy system.
+
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/oliwave/cs-665-assignment-4
 
 # Implementation Description 
 
 
 For each assignment, please answer the following:
 
-- Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
-- Discuss the simplicity and understandability of your implementation, ensuring that it is
-easy for others to read and maintain.
-- Describe how you have avoided duplicated code and why it is important.
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
+### Explain the level of flexibility in your implementation, including how new object types can be easily added or removed in the future.
 
+- For any legacy system like `CustomerDataFromDisk` that implements the `CustomerDataViaUsb` interface, the `HttpsToUsbAdapter` adapter makes them easy to add and handle.
+
+### Discuss the simplicity and understandability of your implementation, ensuring that it is easy for others to read and maintain.
+
+- `CustomerDataViaHttps` (new) and `CustomerDataViaUsb` (old) are compatible because of the Adapter. Most importantly, we don't need to make any code changes for either new or old system, reducing the readability eventually.
+
+### Describe how you have avoided duplicated code and why it is important.
+
+- Without the Adapter, developers might replicate similar logic (e.g., conversion or transformation code) in multiple places in the codebase.
+- The Adapter pattern centralizes that logic into a single adapter class, reducing redundant conversion code scattered across different classes.
+
+### If applicable, mention any design patterns you have used and explain why they were chosen.
+
+- The Adapter design pattern helps eliminate code duplication by acting as a bridge between two incompatible interfaces, allowing classes with different interfaces to work together without modifying existing code.
 
 # Maven Commands
 
